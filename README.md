@@ -1,3 +1,6 @@
+# Google Doc file:
+
+[Lien du Google doc](https://docs.google.com/document/d/1HqctPEYCdJXFtMEsj8JrUAaVhz6qA8VkSL6zdqUSfrs/edit?usp=sharing)
 # Solar Dayahead Forecast Data
 
 This dataset provides data for evaluating solar production dayahead forecasting methods.
