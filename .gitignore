@@ -4,6 +4,8 @@ A/
 B/
 C/
 
+settings.py
+
 # PYTHON .gitignore template
 # Byte-compiled / optimized / DLL files
 __pycache__/
