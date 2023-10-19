@@ -4,7 +4,12 @@
 
 # Google colab file (Valentin):
 
-[Lien du Google colab](https://colab.research.google.com/drive/11yQYJJiiXjr2ZB4mD-PZoiRMpRZ6ajNQ?usp=sharing)
+[Lien du Google colab de test](https://colab.research.google.com/drive/11yQYJJiiXjr2ZB4mD-PZoiRMpRZ6ajNQ?usp=sharing)
+
+[Lien du Google colab dépot Kaggle](https://colab.research.google.com/drive/1eLPQoJ8eKEKOLXDn7_LADMFoXpte3anO?usp=sharing)
+
+[Lien du Google colab étude sans TS](https://colab.research.google.com/drive/1bMi9gyoiIkMLv2NDGDHLrlxDz2Ykbf5e#scrollTo=4nl1rTLkQgsv)
+
 # Solar Dayahead Forecast Data
 
 This dataset provides data for evaluating solar production dayahead forecasting methods.
