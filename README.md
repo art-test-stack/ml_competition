@@ -10,7 +10,7 @@
 
 [Lien du Google colab étude sans TS](https://colab.research.google.com/drive/1bMi9gyoiIkMLv2NDGDHLrlxDz2Ykbf5e#scrollTo=4nl1rTLkQgsv)
 
-# Solar Dayahead Forecast Data
+# Solar Datahead Forecast Data
 
 This dataset provides data for evaluating solar production dayahead forecasting methods.
 The dataset contains three locations (A, B, C), corresponding to office buildings with solar panels installed.
