@@ -1,3 +1,7 @@
+# Rapport LaTeX: 
+
+[Lien du rapport](https://www.overleaf.com/2942188165ppvhmyjptyxq#ea4a8b)
+
 # Google Doc file:
 
 [Lien du Google doc](https://docs.google.com/document/d/1HqctPEYCdJXFtMEsj8JrUAaVhz6qA8VkSL6zdqUSfrs/edit?usp=sharing)
@@ -9,6 +13,8 @@
 [Lien du Google colab dépot Kaggle](https://colab.research.google.com/drive/1eLPQoJ8eKEKOLXDn7_LADMFoXpte3anO?usp=sharing)
 
 [Lien du Google colab étude sans TS](https://colab.research.google.com/drive/1bMi9gyoiIkMLv2NDGDHLrlxDz2Ykbf5e#scrollTo=4nl1rTLkQgsv)
+
+[Lien du Google colab analyse heure par heure](https://colab.research.google.com/drive/1koqf9g9t5JexdVAuAvjwyCN8CiMBCkki?usp=sharing)
 
 # Solar Datahead Forecast Data
 
