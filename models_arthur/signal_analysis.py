@@ -11,9 +11,13 @@ sys.path.append('../')
 import utils
 import settings
 
+# USEFUL VALUES
 
 start_date0 = { 'a': '2020-10-21', 'b': '2020-03-15', 'c': '2020-04-01' }
 end_date0 = { 'a': '2022-10-21', 'b': '2022-03-15', 'c': '2022-04-01'}
+
+locations = ['a', 'b', 'c']
+hours = [ f"0{h}" if h < 10 else str(h) for h in range(24) ]
 
 # UTILITY FUNCTIONS
 
@@ -84,8 +88,6 @@ def get_normalized_y_and_pred_separated_by_hours_and_location(
 
     train_a, train_b, train_c, _, _, _, _, _, _, _, _, _ = utils.read_files(diff_path=diff_path)
 
-    locations = ['a', 'b', 'c']
-    hours = [ f"0{h}" if h < 10 else str(h) for h in range(24) ]
     trains = [ train_a, train_b, train_c ]
 
     train_ = {}
@@ -145,3 +147,10 @@ def get_normalized_y_and_pred_separated_by_hours_and_location(
             } for loc in locations 
         }
     return Y_train, y_filtred_fit
+
+
+def format_signal_to_final_format(
+        y_to_format
+    ):
+
+    train_a, train_b, train_c, _, _, _, _, _, _, _, _, _ = utils.read_files(diff_path=diff_path)
