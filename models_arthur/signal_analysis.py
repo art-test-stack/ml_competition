@@ -64,7 +64,8 @@ def get_normalized_y_and_pred_separated_by_hours_and_location(
         end_date=end_date0,
         nb_frequences=2,
         nb_days_to_predict=0,
-        sample_rate=1 # 1 by day
+        sample_rate=1, # 1 by day
+        factor_to_fit=1
     ):
     """
     GET y normalized and y_pred from signal analysis
@@ -123,7 +124,7 @@ def get_normalized_y_and_pred_separated_by_hours_and_location(
     pred_from_model_data = { loc: { h: reconstruct_signal(model[loc][h], duration=len(model[loc][h]["frequencies"]) + nb_days_to_predict, sample_rate=sample_rate) for h in hours } for loc in locations }
 
     y_filtred_fit = { loc: { h: (pred_from_model_data[loc][h] - np.mean(pred_from_model_data[loc][h])) / np.std(pred_from_model_data[loc][h]) for h in hours } for loc in locations }
-
+    
     # Factor to fit Y_train middle (set max to .5 if factor_to_fit == 2)
     factor_to_fit = 1
     y_filtred_fit = { 
@@ -134,5 +135,13 @@ def get_normalized_y_and_pred_separated_by_hours_and_location(
                 np.min(np.array(Y_train[loc][h]))) for h in hours 
             } for loc in locations 
         }
-
+    y_filtred_fit = { loc: { h: pred_from_model_data[loc][h] * np.std(Y_train[loc][h]) + np.mean(Y_train[loc][h]) for h in hours } for loc in locations }
+    y_filtred_fit = { 
+        loc: {
+            h: np.where(
+                np.real(y_filtred_fit[loc][h]) > np.min(np.array(Y_train[loc][h])),
+                np.real(y_filtred_fit[loc][h]) / factor_to_fit,
+                np.min(np.array(Y_train[loc][h]))) for h in hours 
+            } for loc in locations 
+        }
     return Y_train, y_filtred_fit
