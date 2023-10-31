@@ -127,7 +127,6 @@ def get_normalized_y_and_pred_separated_by_hours_and_location(
 
     y_filtred_fit = { loc: { h: (pred_from_model_data[loc][h] - np.mean(pred_from_model_data[loc][h])) / np.std(pred_from_model_data[loc][h]) for h in hours } for loc in locations }
     
-    # Factor to fit Y_train middle (set max to .5 if factor_to_fit == 2)
     factor_to_fit = 1
     y_filtred_fit = { 
         loc: {
@@ -154,3 +153,4 @@ def format_signal_to_final_format(
     ):
 
     train_a, train_b, train_c, _, _, _, _, _, _, _, _, _ = utils.read_files(diff_path=diff_path)
+    
