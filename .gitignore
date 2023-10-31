@@ -3,7 +3,10 @@
 A/
 B/
 C/
-
+A_reshaped/
+B_reshaped/
+C_reshaped/
+corr_matrix/
 settings.py
 
 # PYTHON .gitignore template
