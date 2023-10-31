@@ -10,6 +10,8 @@ corr_matrix/
 settings.py
 .DS_store
 
+models_arthur/split_hours.ipynb
+
 # PYTHON .gitignore template
 # Byte-compiled / optimized / DLL files
 __pycache__/
