@@ -8,6 +8,7 @@ B_reshaped/
 C_reshaped/
 corr_matrix/
 settings.py
+.DS_store
 
 # PYTHON .gitignore template
 # Byte-compiled / optimized / DLL files
