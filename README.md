@@ -16,6 +16,8 @@
 
 [Lien du Google colab analyse heure par heure](https://colab.research.google.com/drive/1koqf9g9t5JexdVAuAvjwyCN8CiMBCkki?usp=sharing)
 
+[Lien du Google colab XGBoost 170](https://colab.research.google.com/drive/16FTpI4JkbT4s9JRzNp7lxiy6aJ5I89PK?usp=sharing)
+
 # Solar Datahead Forecast Data
 
 This dataset provides data for evaluating solar production dayahead forecasting methods.
