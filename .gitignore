@@ -3,13 +3,17 @@
 A/
 B/
 C/
-A_reshaped/
-B_reshaped/
-C_reshaped/
+A_reshaped
+B_reshaped
+C_reshaped
 corr_matrix/
 settings.py
 .DS_store
-
+*_reshaped*
+structured_data_regressor
+time_series_forecaster
+*sub*
+regA1
 models_arthur/split_hours.ipynb
 
 # PYTHON .gitignore template

@@ -48,6 +48,23 @@ def get_reshaped_files(diff_path: str = ''):
     return X_train_estimated_a, X_train_estimated_b, X_train_estimated_c, X_train_observed_a, X_train_observed_b, X_train_observed_c, X_test_estimated_a, X_test_estimated_b, X_test_estimated_c
 
 
+def get_reshaped_files3(diff_path: str = ''):
+    X_train_estimated_a = pd.read_parquet(diff_path + settings.A_reshaped3.X_train_estimated)
+    X_train_estimated_b = pd.read_parquet(diff_path + settings.B_reshaped3.X_train_estimated)
+    X_train_estimated_c = pd.read_parquet(diff_path + settings.C_reshaped3.X_train_estimated)
+
+    X_train_observed_a = pd.read_parquet(diff_path + settings.A_reshaped3.X_train_observed)
+    X_train_observed_b = pd.read_parquet(diff_path + settings.B_reshaped3.X_train_observed)
+    X_train_observed_c = pd.read_parquet(diff_path + settings.C_reshaped3.X_train_observed)
+
+    X_test_estimated_a = pd.read_parquet(diff_path + settings.A_reshaped3.X_test_estimated)
+    X_test_estimated_b = pd.read_parquet(diff_path + settings.B_reshaped3.X_test_estimated)
+    X_test_estimated_c = pd.read_parquet(diff_path + settings.C_reshaped3.X_test_estimated)
+
+    return X_train_estimated_a, X_train_estimated_b, X_train_estimated_c, X_train_observed_a, X_train_observed_b, X_train_observed_c, X_test_estimated_a, X_test_estimated_b, X_test_estimated_c
+
+
+
 def get_days_to_predict(dframe = None, diff_path: str='../', date_key = 'date_forecast'):
     dframe = pd.read_parquet(diff_path + settings.A.X_test_estimated) if dframe is None else dframe
     days = []

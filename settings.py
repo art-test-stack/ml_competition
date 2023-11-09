@@ -14,4 +14,8 @@ A_reshaped = DataFolder(folder_name='A_reshaped')
 B_reshaped = DataFolder(folder_name='B_reshaped')
 C_reshaped = DataFolder(folder_name='C_reshaped')
 
+A_reshaped3 = DataFolder(folder_name='A_reshaped3')
+B_reshaped3 = DataFolder(folder_name='B_reshaped3')
+C_reshaped3 = DataFolder(folder_name='C_reshaped3')
+
 utils = 'utils.py'
