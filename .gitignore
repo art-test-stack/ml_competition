@@ -9,7 +9,7 @@ C_reshaped
 corr_matrix/
 settings.py
 .DS_store
-*_reshaped*
+*_reshaped2
 structured_data_regressor
 time_series_forecaster
 *sub*
