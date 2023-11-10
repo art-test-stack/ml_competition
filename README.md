@@ -18,6 +18,9 @@
 
 [Lien du Google colab XGBoost 170](https://colab.research.google.com/drive/16FTpI4JkbT4s9JRzNp7lxiy6aJ5I89PK?usp=sharing)
 
+[Lien du Google colab Rapport partie Valentin]
+(https://colab.research.google.com/drive/1GmWXBJ6KZzWMR-UWPnqAsfYB9izNmwbH?usp=sharing)
+
 # Solar Datahead Forecast Data
 
 This dataset provides data for evaluating solar production dayahead forecasting methods.
