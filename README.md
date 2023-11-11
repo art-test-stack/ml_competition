@@ -21,6 +21,9 @@
 [Lien du Google colab Rapport partie Valentin]
 (https://colab.research.google.com/drive/1GmWXBJ6KZzWMR-UWPnqAsfYB9izNmwbH?usp=sharing)
 
+[Lien du Google colab Rapport partie Nahel]
+(https://colab.research.google.com/drive/1JBv_KbkKGDA_AAoVTtvLLhVMST5xFo3M?usp=sharing)
+
 # Solar Datahead Forecast Data
 
 This dataset provides data for evaluating solar production dayahead forecasting methods.
