@@ -8,7 +8,6 @@ A_reshaped
 B_reshaped
 C_reshaped
 corr_matrix/
-settings.py
 .DS_store
 *_reshaped2
 structured_data_regressor
