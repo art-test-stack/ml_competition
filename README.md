@@ -222,7 +222,7 @@ XGBRegressor(base_score=None, booster=None, callbacks=None,
 
 We discovered during our study that, as we already said, that the results of this algorithm, to find to best parameters were strongly correlated. Our submissions on kaggle were depending a lot of which test sets we choose. The thing is it was very though, and required a lot of time, to look for the best test set and and find the model with the best hyperparameters on it. 
 
-![image info](./rsc/13_submission.png)
+![image info](./rsc/13_suubmition.png)
 
 ## 4. Areas for improvement
 
