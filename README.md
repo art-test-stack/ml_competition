@@ -148,7 +148,8 @@ When we explore our data we can see that `sun_azimuth:d` corresponds to the posi
 
 **Data augmentation - interpolation**:
 
-One of our idea, which worked pretty well, was to interpolate the values of the output. We tryed different interpolations, but the one which looked as the best one to do so, were the linear one. It's mathically defined as following, and the function which do the job, is `interpolate_output_values`.$$y(t + 1/4) = 0.75 * y(t) + 0.25 * y(t+1)$$
+One of our idea, which worked pretty well, was to interpolate the values of the output. We tryed different interpolations, but the one which looked as the best one to do so, were the linear one. It's mathically defined as following, and the function which do the job, is `interpolate_output_values`.
+$$y(t + 1/4) = 0.75 * y(t) + 0.25 * y(t+1)$$
 $$y(t + 1/2) = 0.5 * y(t) + 0.5 * y(t+1)$$
 $$y(t + 3/4) = 0.25 * y(t) + 0.75 * y(t+1)$$
 where t is a round hour (such as 12:00:00, 13:00:00 etc).
