@@ -8,7 +8,7 @@ pd.set_option('display.max_columns', 200)
 
 import sys
 sys.path.append('../')
-import utils
+import functions.utils as utils
 
 # USEFUL VALUES
 
