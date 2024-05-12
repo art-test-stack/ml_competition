@@ -1,5 +1,6 @@
 # Project .gitignore
 *.csv
+archives/
 A/
 B/
 C/
@@ -15,6 +16,11 @@ time_series_forecaster
 *sub*
 regA1
 models_arthur/split_hours.ipynb
+XGBoost_*
+XGBoost*.ipynb
+xgboost*.ipynb
+read_file*.ipynb
+valentin/
 
 # PYTHON .gitignore template
 # Byte-compiled / optimized / DLL files
