@@ -1,5 +1,7 @@
 # Project .gitignore
 *.csv
+
+final_notebook2.ipynb
 archives/
 A/
 B/

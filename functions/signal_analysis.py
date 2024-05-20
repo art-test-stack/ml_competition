@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import numpy as np
 import matplotlib.pylab as plt
+import scipy 
 
 pd.set_option('display.max_rows', 200)
 pd.set_option('display.max_columns', 200)
@@ -31,6 +32,7 @@ def get_model(fft_values, threshold=60, sample_rate=1):
     phases = np.angle(fft_values)
     return {"frequencies": frequencies, "amplitudes": amplitudes, "phases": phases}
 
+
 def reconstruct_signal(model, duration, sample_rate = 1):
     frequencies = model["frequencies"]
     amplitudes = model["amplitudes"]
@@ -43,6 +45,7 @@ def reconstruct_signal(model, duration, sample_rate = 1):
         signal += amp * np.exp(2j * np.pi * freq * t + phase)
     
     return signal / len(frequencies)
+
 
 def get_thresholds_to_get_n_freq(signal, nb_freq, threshold, step):
     assert step > 0
@@ -61,6 +64,7 @@ def get_thresholds_to_get_n_freq(signal, nb_freq, threshold, step):
 # IMPORTANT FUNCTION:
 # See example on:
 # signal_analysis_example.ipynb
+
 
 def get_normalized_y_and_pred_separated_by_hours_and_location(
         diff_path='../',
@@ -154,3 +158,80 @@ def format_signal_to_final_format(
 
     train_a, train_b, train_c, _, _, _, _, _, _, _, _, _ = utils.read_files(diff_path=diff_path)
     
+
+def filter_dates_when_constants(df, date_c = 'time', y = 'pv_measurement', delta = { 'days': 3 }):
+    df = df.copy()
+    mask_y_change = df[y] != df[y].shift(1)
+
+    start_date = None
+    end_date = None
+
+    constant_periods = []
+
+    for index, row in df.iterrows():
+        if not mask_y_change[index]:
+            if start_date is None:
+                start_date = row[date_c]
+            end_date = row[date_c]
+        else:
+            if start_date is not None and (end_date - start_date) >= pd.Timedelta(**delta):
+                constant_periods.append((start_date, end_date))
+            start_date = None
+            end_date = None
+
+    if start_date is not None and (end_date - start_date) >= pd.Timedelta(**delta):
+        constant_periods.append((start_date, end_date))
+    return constant_periods
+
+
+def delete_date_range_from_df(df, dates, date_c = 'time'):
+    df = df.copy()
+    c = 0
+    for start_date, end_date in dates:
+        mask = (df[date_c] >= start_date) & (df[date_c] < end_date)
+        df = df[~mask]
+    df.reset_index(drop=True, inplace=True)
+    return df
+
+
+def get_fft_transforms(train):
+    y = train["pv_measurement"].dropna().values
+    time_diff = train["time"].diff().mean().total_seconds()
+    sampling_rate = 1 / time_diff
+
+    n = len(y)
+    freq = np.fft.fftfreq(n, 1 / sampling_rate)
+    fft_y = np.fft.fft(y)
+    amp_fft_y = np.abs(fft_y)
+    phase = np.angle(fft_y)
+    return freq, fft_y, amp_fft_y, phase, sampling_rate
+
+
+def print_peak_frequencies(data, amp_fft_y, freq, threshold, loc):
+    peaks, _ = scipy.signal.find_peaks(amp_fft_y[:len(amp_fft_y)//2], height=threshold)
+    peak_frequencies = freq[:len(freq)//2][peaks]
+
+    period_size = int(1/peak_frequencies[0])
+    continuous_component = np.mean(data[loc]["pv_measurement"].dropna().values[:period_size])
+
+    print("Location:", loc)
+    print(f'Most important periods (in days): \n{1 / peak_frequencies / 3600 / 24}')
+    print(f'Value of the continous component: {continuous_component}\n\n')
+
+
+def get_filtred_signal(signal, nb_freqs, sample_rate, nb_days_to_predict = 0, threshold = 0, scaler = StandardScaler):
+    scaler_pred = scaler
+    scaler = scaler()
+    Y_normed = scaler.fit_transform(np.array(signal['pv_measurement'].dropna()).reshape(-1, 1)).reshape(-1)
+
+    threshold = get_thresholds_to_get_n_freq(signal=Y_normed, nb_freq=nb_freqs, threshold=0, step=.5)
+    model = get_model(fft_values=np.fft.fft(Y_normed), threshold=threshold, sample_rate=sample_rate)
+    pred_from_model_data = np.real(reconstruct_signal(model, duration=len(model["frequencies"]) + nb_days_to_predict, sample_rate=sample_rate)) 
+    scaler_pred = scaler_pred()
+    pred_normed = scaler_pred.fit_transform(pred_from_model_data.reshape(-1, 1)).reshape(-1)
+
+    Y_filtred = scaler.inverse_transform(pred_normed.reshape(-1, 1)).reshape(-1)
+
+    # If we want to filter negative values
+    Y_filtred[Y_filtred < 0] = 0
+    return Y_filtred

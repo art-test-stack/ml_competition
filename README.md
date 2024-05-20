@@ -28,7 +28,7 @@ Evaluation measure is [MAE](https://en.wikipedia.org/wiki/Mean_absolute_error).
 
 # Our final submission
 
-The total final report with all the code details can be found on [`final_notebook.ipynb`](final_notebook.ipynb). This section is only allocated to provides the main plots we had.
+The total final report with all the code details can be found on [`final_notebook.ipynb`](notebooks/final_notebook.ipynb). This section is only allocated to provides the main plots we had.
 
 On [`rsc`](./rsc) folder we displayed some results after running [`final_notebook.ipynb`](final_notebook.ipynb).
 
@@ -118,8 +118,7 @@ We then decided to use the same method using prophet.
 
 We get then the prophet reconstructions:
 
-![image info](./rsc/7_prophet_reconstruction
-.png)
+![image info](./rsc/7_prophet_reconstruction.png)
 
 We did not found much successful results on it. The curve obtained were not that bad but we did not had much time to merge this with the biggest model. Maybe this approach were to much complicated as a first one and we should have focus on it later. From now, we consider it as a way to upgrade our current model that we are going to present in the next parts.
 
